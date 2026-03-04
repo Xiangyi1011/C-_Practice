@@ -1,12 +1,32 @@
 #include <iostream>
 using namespace std;
+
 int main() {
-  int a, b, c;
-  bool sol = false; //bool判斷 sol狀態 預設為false
-  cin >> a >> b >> c; //c為運算結果
-  if ((a && b)==c && (sol==true)) cout << "and" << '\n';
-  if ((a || b)==c && (sol==true)) cout << "or" << '\n';
-  if (((a && !b)||(!a && b))==c && (sol==true)) cout << "xor" << '\n'; //!x && y ,意思為x不成立 但y成立 ; sol=true 時才會輸出
-  if (!sol) cout << "impossible" << endl; //sol=false時輸出, 因為前面的if條件皆不成立
-  return 0; //正常結束
+    int a, b, c;
+    bool sol = false; // 用來判斷是否有任何條件成立
+
+    if (!(cin >> a >> b >> c)) return 0; // 讀取輸入
+
+    // AND 邏輯
+    if ((a && b) == c) {
+        cout << "and" << endl;
+        sol = true;
+    }
+    // OR 邏輯
+    if ((a || b) == c) {
+        cout << "or" << endl;
+        sol = true;
+    }
+    // XOR 邏輯
+    if (((a && !b) || (!a && b)) == c) {
+        cout << "xor" << endl;
+        sol = true;
+    }
+
+    // 如果都沒有成立的條件
+    if (!sol) {
+        cout << "impossible" << endl;
+    }
+
+    return 0;
 }
