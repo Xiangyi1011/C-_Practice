@@ -10,7 +10,7 @@ int *create_array(){
   array[4] = 50;
   return array;
 }
-  
+
 int main(){
   int *array = create_array();
   for(int i=0;i<5;i++){
